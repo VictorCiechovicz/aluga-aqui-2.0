@@ -17,6 +17,7 @@ export function SearchInput({
   value = '',
   onChange,
   onSelectCity,
+  placeholder,
   ...props
 }: SearchInputProps) {
   const [showSuggestions, setShowSuggestions] = useState(false)
@@ -51,30 +52,34 @@ export function SearchInput({
   return (
     <div className={cn('relative', containerClassName)}>
       <Input
-        className={cn('pl-10 h-14 text-base rounded-full shadow-sm', className)}
+        className={cn(
+          'pl-10 h-14 text-base rounded-xl border-zinc-200 shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-400 focus:text-zinc-800 transition-all bg-white',
+          className
+        )}
         value={value}
         onChange={onChange}
         onFocus={() => setShowSuggestions(true)}
+        placeholder={placeholder}
         {...props}
       />
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-700" />
 
       {showSuggestions && (value || suggestions.length > 0) && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border overflow-hidden">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border border-zinc-200 overflow-hidden max-h-[280px] overflow-y-auto">
           {suggestions.length === 0 && value ? (
-            <div className="px-4 py-2 text-sm text-gray-500">
+            <div className="px-4 py-3 text-sm text-zinc-600 bg-zinc-50">
               Nenhuma cidade encontrada
             </div>
           ) : (
             suggestions.map(city => (
               <button
                 key={`${city.name}-${city.state}`}
-                className="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2"
+                className="w-full px-4 py-3 text-left hover:bg-blue-50 flex items-center gap-2 transition-colors border-b border-zinc-100 last:border-none"
                 onClick={() => handleCitySelect(city)}
                 type="button"
               >
-                <span className="text-gray-600">{city.name}</span>
-                <span className="text-sm text-gray-400">- {city.state}</span>
+                <span className="text-zinc-800 font-medium">{city.name}</span>
+                <span className="text-sm text-zinc-500">- {city.state}</span>
               </button>
             ))
           )}

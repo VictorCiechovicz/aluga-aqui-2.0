@@ -1,6 +1,5 @@
-import { PropertyCard } from '@/components/PropertyCard'
+import { PropertyCard } from '@/components/pages/home/components/PropertyCard'
 
-// Temporary mock data - in a real application, this would come from an API or database
 const properties = [
   {
     id: '1',
