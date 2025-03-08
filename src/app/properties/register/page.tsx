@@ -465,30 +465,30 @@ export default function RegisterProperty() {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {images.map((image, index) => (
                   <div
                     key={index}
-                    className="relative group border border-gray-200 rounded-lg p-1 hover:border-blue-500 transition-colors"
+                    className="relative group border border-gray-200 rounded-lg p-2 hover:border-blue-500 transition-colors"
                   >
-                    <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-100">
+                    <div className="relative w-full h-[240px] overflow-hidden rounded-lg bg-gray-100">
                       <Image
                         src={image.preview}
                         alt={`Imagem ${index + 1}`}
-                        className="object-cover"
+                        className="object-contain"
                         fill
-                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-30 rounded-lg">
                       <button
                         type="button"
                         onClick={() => removeImage(index)}
-                        className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transform transition-transform hover:scale-110"
+                        className="p-3 bg-red-500 text-white rounded-full hover:bg-red-600 transform transition-transform hover:scale-110"
                         title="Remover imagem"
                       >
                         <svg
-                          className="h-5 w-5"
+                          className="h-6 w-6"
                           fill="none"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -500,7 +500,7 @@ export default function RegisterProperty() {
                         </svg>
                       </button>
                     </div>
-                    <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+                    <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1.5 rounded-full text-sm">
                       Imagem {index + 1}
                     </div>
                   </div>
