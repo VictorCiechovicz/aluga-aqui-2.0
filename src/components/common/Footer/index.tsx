@@ -1,6 +1,15 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export function Footer() {
+  const pathname = usePathname()
+  const isAuthPage = pathname.startsWith('/auth/')
+
+  // Não renderizar o Footer nas páginas de autenticação
+  if (isAuthPage) return null
+
   return (
     <footer className="border-t py-8 mt-16">
       <div className="max-w-7xl mx-auto px-4">

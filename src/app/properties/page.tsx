@@ -10,7 +10,7 @@ const properties = [
     bedrooms: 3,
     bathrooms: 2,
     area: 150,
-    imageUrl: '/house1.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914'
   },
   {
     id: '2',
@@ -21,7 +21,18 @@ const properties = [
     bedrooms: 2,
     bathrooms: 1,
     area: 75,
-    imageUrl: '/apartment1.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267'
+  },
+  {
+    id: '3',
+    title: 'Casa com Piscina',
+    price: 3500,
+    address: 'Rua dos Lagos, 456',
+    city: 'Rio de Janeiro',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 200,
+    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c'
   }
   // Add more properties as needed
 ]

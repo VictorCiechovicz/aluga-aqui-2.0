@@ -13,7 +13,7 @@ export function HomeComponent() {
       bedrooms: 3,
       bathrooms: 2,
       area: 150,
-      imageUrl: '/house1.jpg'
+      imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914'
     },
     {
       id: '2',
@@ -24,7 +24,7 @@ export function HomeComponent() {
       bedrooms: 2,
       bathrooms: 1,
       area: 75,
-      imageUrl: '/apartment1.jpg'
+      imageUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267'
     },
     {
       id: '3',
@@ -35,7 +35,7 @@ export function HomeComponent() {
       bedrooms: 4,
       bathrooms: 3,
       area: 200,
-      imageUrl: '/house2.jpg'
+      imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c'
     }
   ]
   return (

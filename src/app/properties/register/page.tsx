@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { useAuth } from '@/contexts/auth-context'
 
 interface City {
   id: number
@@ -31,6 +32,7 @@ const fetchCities = async (): Promise<City[]> => {
 
 export default function RegisterProperty() {
   const router = useRouter()
+  const { hasRestrictedAccess } = useAuth()
   const [cities, setCities] = useState<City[]>([])
   const [images, setImages] = useState<ImagePreview[]>([])
   const [isDragging, setIsDragging] = useState(false)
@@ -136,6 +138,15 @@ export default function RegisterProperty() {
       ...prev,
       [name]: value
     }))
+  }
+
+  const handleCancel = () => {
+    if (hasRestrictedAccess) {
+      // If user has restricted access, only allow navigation to home or properties listing
+      router.push('/properties')
+    } else {
+      router.back()
+    }
   }
 
   return (
@@ -513,7 +524,7 @@ export default function RegisterProperty() {
         <div className="flex justify-end space-x-4">
           <button
             type="button"
-            onClick={() => router.back()}
+            onClick={handleCancel}
             className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
           >
             Cancelar
