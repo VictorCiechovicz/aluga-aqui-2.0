@@ -43,7 +43,16 @@ export function Header() {
   if (isAuthPage) return null
 
   const handleNavigation = (route: string) => {
-    // If user has restricted access, only allow navigation to home, properties listing, and property details
+    console.log(route)
+    console.log(hasRestrictedAccess)
+
+    // Sempre permitir navegação para rotas de autenticação
+    if (route.startsWith('/auth/')) {
+      router.push(route)
+      return
+    }
+
+    // Verificar restrições para outras rotas
     if (
       hasRestrictedAccess &&
       !route.startsWith('/properties') &&
